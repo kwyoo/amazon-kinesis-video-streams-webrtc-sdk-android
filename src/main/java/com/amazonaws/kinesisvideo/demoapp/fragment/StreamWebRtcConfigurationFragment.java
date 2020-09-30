@@ -129,7 +129,7 @@ public class StreamWebRtcConfigurationFragment extends Fragment {
             @NonNull
             @Override
             public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                if(convertView == null) {
+                if (convertView == null) {
                     View v = getLayoutInflater().inflate(android.R.layout.simple_list_item_multiple_choice, null);
 
                     final CheckedTextView ctv = v.findViewById(android.R.id.text1);
@@ -268,8 +268,7 @@ public class StreamWebRtcConfigurationFragment extends Fragment {
     }
 
     private AWSKinesisVideoClient getAwsKinesisVideoClient(final String region) {
-        final AWSKinesisVideoClient awsKinesisVideoClient = new AWSKinesisVideoClient(
-                KinesisVideoWebRtcDemoApp.getCredentialsProvider().getCredentials());
+        final AWSKinesisVideoClient awsKinesisVideoClient = new AWSKinesisVideoClient(KinesisVideoWebRtcDemoApp.CREDENTIALS);
         awsKinesisVideoClient.setRegion(Region.getRegion(region));
         awsKinesisVideoClient.setSignerRegionOverride(region);
         awsKinesisVideoClient.setServiceNameIntern("kinesisvideo");
@@ -277,8 +276,7 @@ public class StreamWebRtcConfigurationFragment extends Fragment {
     }
 
     private AWSKinesisVideoSignalingClient getAwsKinesisVideoSignalingClient(final String region, final String endpoint) {
-        final AWSKinesisVideoSignalingClient client = new AWSKinesisVideoSignalingClient(
-                KinesisVideoWebRtcDemoApp.getCredentialsProvider().getCredentials());
+        final AWSKinesisVideoSignalingClient client = new AWSKinesisVideoSignalingClient(KinesisVideoWebRtcDemoApp.CREDENTIALS);
         client.setRegion(Region.getRegion(region));
         client.setSignerRegionOverride(region);
         client.setServiceNameIntern("kinesisvideo");
@@ -336,7 +334,7 @@ public class StreamWebRtcConfigurationFragment extends Fragment {
                         return "Create Signaling Channel failed with Exception " + ex.getLocalizedMessage();
                     }
                 } else {
-                    return "Signaling Channel " + channelName +" doesn't exist!";
+                    return "Signaling Channel " + channelName + " doesn't exist!";
                 }
             } catch (Exception ex) {
                 return "Describe Signaling Channel failed with Exception " + ex.getLocalizedMessage();

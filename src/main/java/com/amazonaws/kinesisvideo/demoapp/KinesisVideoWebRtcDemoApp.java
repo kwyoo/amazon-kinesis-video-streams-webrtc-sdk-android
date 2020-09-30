@@ -3,7 +3,9 @@ package com.amazonaws.kinesisvideo.demoapp;
 import android.app.Application;
 import android.util.Log;
 
+import com.amazonaws.auth.AWSCredentials;
 import com.amazonaws.auth.AWSCredentialsProvider;
+import com.amazonaws.auth.BasicAWSCredentials;
 import com.amazonaws.kinesisvideo.common.logging.LogLevel;
 import com.amazonaws.kinesisvideo.common.logging.OutputChannel;
 import com.amazonaws.mobile.client.AWSMobileClient;
@@ -18,6 +20,7 @@ import org.json.JSONObject;
 import java.util.concurrent.CountDownLatch;
 
 public class KinesisVideoWebRtcDemoApp extends Application {
+    public static final AWSCredentials CREDENTIALS = new BasicAWSCredentials("AKIASJVUCVWN44EHRQOT", "FSW9iNLVPMVFfIxysAk95J5gicCe2fukKMJjrM2G");
     private static final String TAG = KinesisVideoWebRtcDemoApp.class.getSimpleName();
 
     public static AWSCredentialsProvider getCredentialsProvider() {
@@ -28,15 +31,7 @@ public class KinesisVideoWebRtcDemoApp extends Application {
     }
 
     public static String getRegion() {
-        AWSConfiguration configuration = AWSMobileClient.getInstance().getConfiguration();
-        JSONObject jsonObject = configuration.optJsonObject("CredentialsProvider");
-        String region = null;
-        try {
-            region = (String) ((JSONObject) (((JSONObject) jsonObject.get("CognitoIdentity")).get("Default"))).get("Region");
-        } catch (JSONException e) {
-            Log.e(TAG, "Got exception when extracting region from cognito setting.", e);
-        }
-        return region;
+        return "ap-northeast-2";
     }
 
     @Override
