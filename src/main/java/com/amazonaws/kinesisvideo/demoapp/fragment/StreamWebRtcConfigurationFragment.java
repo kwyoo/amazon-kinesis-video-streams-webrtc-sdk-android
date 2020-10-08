@@ -65,7 +65,7 @@ public class StreamWebRtcConfigurationFragment extends Fragment {
     public static final String KEY_ICE_SERVER_URI = "iceServerUri";
     public static final String KEY_CAMERA_FRONT_FACING = "cameraFrontFacing";
 
-    private static final String KEY_SEND_VIDEO = "sendVideo";
+    public static final String KEY_SEND_VIDEO = "sendVideo";
     public static final String KEY_SEND_AUDIO = "sendAudio";
 
     private static final String[] WEBRTC_OPTIONS = {
@@ -137,13 +137,13 @@ public class StreamWebRtcConfigurationFragment extends Fragment {
 
                     // Send video is enabled by default and cannot uncheck
                     if (position == 0) {
-                        ctv.setEnabled(false);
-                        ctv.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                ctv.setChecked(true);
-                            }
-                        });
+                        ctv.setEnabled(true);
+//                        ctv.setOnClickListener(new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//                                ctv.setChecked(true);
+//                            }
+//                        });
                     }
                     return v;
                 }

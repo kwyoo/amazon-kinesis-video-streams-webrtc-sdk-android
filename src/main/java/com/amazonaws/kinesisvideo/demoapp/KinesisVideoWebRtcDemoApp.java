@@ -20,7 +20,7 @@ import org.json.JSONObject;
 import java.util.concurrent.CountDownLatch;
 
 public class KinesisVideoWebRtcDemoApp extends Application {
-    public static final AWSCredentials CREDENTIALS = new BasicAWSCredentials("AKIASJVUCVWN44EHRQOT", "FSW9iNLVPMVFfIxysAk95J5gicCe2fukKMJjrM2G");
+    public static final AWSCredentials CREDENTIALS = new BasicAWSCredentials("교체", "교체");
     private static final String TAG = KinesisVideoWebRtcDemoApp.class.getSimpleName();
 
     public static AWSCredentialsProvider getCredentialsProvider() {
